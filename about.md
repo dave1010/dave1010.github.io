@@ -4,8 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+I'm technical lead at [Base](http://wearebase.com), a digital agency in Westbourne, near Bournemouth. Leading the development team, I'm responsible for the technical output and quality. Much of my time is spent doing system architecture/integration and working with modern open source frameworks.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+If my fingers are near a keyboard then chances are I'm writing PHP or JavaScript. You can see a fraction of what I code on [GitHub](https://github.com/dave1010).
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I'm also one of the cofounders of [PHP Dorset](http://www.phpdorset.co.uk).
+
+Specialties: PHP, MySQL, JavaScript, Linux, Security, Performance, Open Source.
+
+Experience: Mobile web apps, jQuery, CSS, RWD, Sass, accessibility, usability, Apache, Nginx, PostgreSQL, Bash, HTML, HTML5, HTML6, Unit testing, TDD, Symfony, Laravel, big data, graph databases, pen testing.
