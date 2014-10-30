@@ -13,3 +13,5 @@ I'm also one of the cofounders of [PHP Dorset](http://www.phpdorset.co.uk).
 Specialties: PHP, MySQL, JavaScript, Linux, Security, Performance, Open Source.
 
 Experience: Mobile web apps, jQuery, CSS, RWD, Sass, accessibility, usability, Apache, Nginx, PostgreSQL, Bash, HTML, HTML5, HTML6, Unit testing, TDD, Symfony, Laravel, big data, graph databases, pen testing.
+
+This site is Open Source! [Pull requests](https://github.com/dave1010/dave1010.github.io) welcome.

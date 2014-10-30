@@ -1,8 +1,7 @@
 # Site settings
 title: Dave Hulbert - Create Open
 email: dave1010@gmailNOSPAM.com
-description: >
-  Dave Hulbert's site. Mostly about software.
+description: Dave Hulbert's site. Mostly about software. This site is Open Source! Pull requests welcome.
 baseurl: ""
 url: "https://dave1010.github.io" # the base hostname & protocol for your site
 twitter_username: dave1010
