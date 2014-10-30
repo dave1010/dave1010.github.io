@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 
 I'm technical lead at [Base](http://wearebase.com), a digital agency in Westbourne, near Bournemouth. Leading the development team, I'm responsible for the technical output and quality. Much of my time is spent doing system architecture/integration and working with modern open source frameworks.
