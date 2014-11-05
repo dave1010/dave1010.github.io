@@ -14,6 +14,7 @@ In my experience: **taking on this form of technical debt is virtually never wor
 With a global variable you're doing something like this:
 
 {% highlight php %}
+<?php
 class Foo {
     public function __construct()
     {
@@ -28,6 +29,7 @@ In this case, `$foo` has a hidden dependency on `$GLOBALS['db']`. That means fro
 Injecting your dependencies into `Foo` gives you the ability to decouple `Foo` from its dependencies. This makes testing and refactoring much easier. This can be done in 1 of 2 ways. Injecting a service locator is the first way to decoupling `Foo`.
 
 {% highlight php %}
+<?php
 class Foo {
     public function __construct(ServiceLocator $serviceLocator)
     {
@@ -40,6 +42,7 @@ new Foo($serviceLocator);
 A service locator gives you separation between `Foo`'s dependency on the DB abstraction and the actual DB implementation. The service locator still keeps the dependency hidden inside `Foo` though, which means `Foo` is still quite hard to refactor. In fact, if your `$serviceLocator` itself is in the global scope, it's almost the same as injecting `$GLOBALS` into `Foo` (which isn't great):
 
 {% highlight php %}
+<?php
 class Foo {
     public function __construct(array &$globals)
     {
@@ -52,6 +55,7 @@ new Foo($GLOBALS);
 The best thing to do is to inject the actual dependencies into `Foo`. This means you can follow the [Dependency Inversion Principle](http://en.wikipedia.org/wiki/Dependency_inversion_principle) (the D in [SOLID](http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)).
 
 {% highlight php %}
+<?php
 class Foo {
     public function __construct(Connection $db)
     {
