@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "Traits with interfaces"
+date:   2014-12-15 21:14:07
+categories: design php
+---
+
+In PHP, Traits can't implement interfaces. They can, however, include abstract methods. These methods then need to be implemented by the concrete class that implements the trait. This allows a traid to provide some boilerplate implementation that depends on an concrete implementation. This isn't always a good idea (it's verging on violating the [Dependency Inversion Principal](http://en.wikipedia.org/wiki/Dependency_inversion_principle) but it's better than a trait attempting to use a method that has no contract.
+
+Example:
+
+{% highlight php %}
+<?php
+trait LoggerTrait
+{
+    abstract public function log($level, $message, array $context = array());
+    
+    public function error($message, array $context = array())
+    {
+        $this->log(LogLevel::ERROR, $message, $context);
+    } 
+}
+{% endhighlight %}
