@@ -13,7 +13,7 @@ One of PSR-7's goals is "Keep the interfaces as minimal as possible". I think th
 
 Immutability is awesome. It mitigates a whole range of bugs like temporal coupling and can provide thread safety (yes, PHP has threads). Immutability means when an object is created then you can't modify it. This often reflects real world semantics. For example, you can find out what breed a dog is but you can't set the breed of a dog (unless you can modify its DNA).
 
-The original PHP DateTime object was immutable but we now have DateTimeImmutable too. Using DateTimeImmutable instead of DateTime makes it much easier to avoid bugs. You need to learn how DateTimeImmutable works differently to DateTime but once you have then the immutability makes code simpler and isn't difficult to use.
+The original PHP DateTime object was mutable but we now have DateTimeImmutable too. Using DateTimeImmutable instead of DateTime makes it much easier to avoid bugs. You need to learn how DateTimeImmutable works differently to DateTime but once you have then the immutability makes code simpler and isn't difficult to use.
 
 Many of the HTTP messages in PSR-7 have forced mutability. Having mutability as part of the interfaces means every implementation needs to support mutability, otherwise they will start breaking the Liskov Substitution Principal.
 
