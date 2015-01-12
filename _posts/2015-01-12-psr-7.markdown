@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Thoughts on PSR-7"
+date:   2014-12-15 21:14:07
+categories: design php
+---
+
+PSR-7 contains interfaces for HTTP messages. These are like Symfony Kernel's Request and Response interfaces. Having these new interfaces would be great for the PHP community but there's a couple of issues with their current state that I'm not happy with.
+
+One of PSR-7's goals is "Keep the interfaces as minimal as possible". I think the current interfaces are not minimal enough.
+
+## Immutability
+
+Immutability is awesome. It mitigates a whole range of bugs like temporal coupling and can provide thread safety (yes, PHP has threads). Immutability means when an object is created then you can't modify it. This often reflects real world semantics. For example, you can find out what breed a dog is but you can't set the breed of a dog (unless you can modify its DNA).
+
+The original PHP DateTime object was immutable but we now have DateTimeImmutable too. Using DateTimeImmutable instead of DateTime makes it much easier to avoid bugs. You need to learn how DateTimeImmutable works differently to DateTime but once you have then the immutability makes code simpler and isn't difficult to use.
+
+Many of the HTTP messages in PSR-7 have forced mutability. Having mutability as part of the interfaces means every implementation needs to support mutability, otherwise they will start breaking the Liskov Substitution Principal.
+
+Arguments for mutability are that it makes code easier to write. Easy does not mean simple. Developers can learn how to do something that is relatively difficult but an interface that leads to complex design cannot be simplified without. Any difficulty can also be encapsulated at different levels, for example, a request builder.
+
+Mutability also pushes developers towards inheritance to add layers of behaviour. This means you get a long depth-of-inheritance, which is inflexible (eg diamond problem) and very hard to maintain. Immutability pushes developers towards composition (eg via decorators), which is much more flexible and easier to test.
+
+Note: HTTP implementations in projects like ruby and node are mutable. These are obviously successful but that doesn't mean they're correct. Mutability is definitely an option but I think immutability is better. 
+
+The argument for mutable objects so they can be iteratively build is moot. A mutable RequestBuilder can be used to create an immutable request. Request implementations could even provide mutability as an extra layer if they wanted. 
+
+## Being too strict to the spec
+
+I wasn't sure about this but I think it's worth mentioning. It's not something that's wrong per se, but could lead to issues. PSR-7 follows the spec very well. It also assumes that all other clients and servers will follow the spec perfectly. 
+
+The HTTP spec says that
+
+    Cache-Control: no-cache
+    Cache-Control: private
+
+is the same as
+
+    Cache-Control: no-cache, private
+
+If a request comes in like the former, then should it be transformed into the latter by PHP when proxying the request? What about requests with different case header names? The HTTP spec is explicit in these cases and it makes sense in 99% of cases for PSR-7 to follow this. 
+
+## Splitting client and server message interfaces
+
+As it currently stands, IncomingRequestInterface and OutgoingRequestInterface are separate interfaces, yet they both represent an HTTP request and have the same API. This seems to be due to mutability, so if the request was immutable then perhaps they could be combined.
+
+## Writing and reading from StreamableInterface
+
+This partly comes down to immutability but is also to do with the Interface Segregation Principal.
+
+A stream can be writable and/or readable. You can't ask for an interface you can read, nor can you ask for an interface you can write to. In effect, the stream's API can vary. You can call write() on a read-only stream and it will return false. Having a ReadableStreamInterface and a WritableStreamInterface would allow more flexibility and simpler code. Streams can always implement both interfaces. 
