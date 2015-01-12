@@ -15,7 +15,7 @@ Immutability is awesome. It mitigates a whole range of bugs like temporal coupli
 
 The original PHP DateTime object was mutable but we now have DateTimeImmutable too. Using DateTimeImmutable instead of DateTime makes it much easier to avoid bugs. You need to learn how DateTimeImmutable works differently to DateTime but once you have then the immutability makes code simpler and isn't difficult to use.
 
-Many of the HTTP messages in PSR-7 have forced mutability. Having mutability as part of the interfaces means every implementation needs to support mutability, otherwise they will start breaking the Liskov Substitution Principal.
+Many of the HTTP messages in PSR-7 have forced mutability. Having mutability as part of the interfaces means every implementation needs to support mutability, otherwise they will start breaking the Liskov Substitution Principle.
 
 Arguments for mutability are that it makes code easier to write. Easy does not mean simple. Developers can learn how to do something that is relatively difficult but an interface that leads to complex design cannot be simplified without. Any difficulty can also be encapsulated at different levels, for example, a request builder.
 
@@ -46,6 +46,6 @@ As it currently stands, IncomingRequestInterface and OutgoingRequestInterface ar
 
 ## Writing and reading from StreamableInterface
 
-This partly comes down to immutability but is also to do with the Interface Segregation Principal.
+This partly comes down to immutability but is also to do with the Interface Segregation Principle.
 
 A stream can be writable and/or readable. You can't ask for an interface you can read, nor can you ask for an interface you can write to. In effect, the stream's API can vary. You can call write() on a read-only stream and it will return false. Having a ReadableStreamInterface and a WritableStreamInterface would allow more flexibility and simpler code. Streams can always implement both interfaces. 
