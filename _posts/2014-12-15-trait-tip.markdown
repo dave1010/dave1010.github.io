@@ -5,7 +5,7 @@ date:   2014-12-15 21:14:07
 categories: design php
 ---
 
-In PHP, Traits can't implement interfaces. They can, however, include abstract methods. These methods then need to be implemented by the concrete class that implements the trait. This allows a trait to provide some boilerplate implementation that depends on an concrete implementation. This isn't always a good idea (it's verging on violating the [Dependency Inversion Principal](http://en.wikipedia.org/wiki/Dependency_inversion_principle) but it's better than a trait attempting to use a method that has no contract.
+In PHP, Traits can't implement interfaces. They can, however, include abstract methods. These methods then need to be implemented by the concrete class that implements the trait. This allows a trait to provide some boilerplate implementation that depends on an concrete implementation. This isn't always a good idea (it's verging on violating the [Dependency Inversion Principle](http://en.wikipedia.org/wiki/Dependency_inversion_principle) but it's better than a trait attempting to use a method that has no contract.
 
 Example:
 
