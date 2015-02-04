@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "HTTP messaging PSR-7 update"
+date:   2015-02-04 08:14:07
+categories: design php frameworks
+---
+
+This is a quick update to my [original blog post criticizing mutability in PSR-7](http://createopen.com/design/php/2014/12/15/psr-7.html).
+
+The original blog post got a fair few tweets and traction on Reddit. More importantly, [Matthew Weier O'Phinney](https://twitter.com/mwop), the lead author of PSR-7, read it and took time to [respond](http://createopen.com/design/php/2014/12/15/psr-7.html#comment-1788691985) with valid feedback on mutability vs immutability.
+
+Before I got the chance to respond to Matthew, he [posted](https://groups.google.com/forum/#!msg/php-fig/9gK8vX8iYZ8/5PZ9rx8UvXYJ) on the PHP-FIG mailing list mentioning that he'd tried implementing an immutable version of the PSR in [phly/http](https://github.com/weierophinney/http/tree/feature/immutability) and it worked really well! 
+
+Immutability is (almost) always the best way to design interfaces. I'm please I (and others like [@everzet](https://twitter.com/everzet) on Twitter) managed to nudge the PSR in that direction.
+
+The current version of the [draft PSR-7 spec](https://github.com/php-fig/fig-standards/blob/master/proposed/http-message.md) is now immutable at it looks like the final version will be too.
+
+Finally, huge thanks to Matthew for not only responding to my feedback but also giving immutability a shot and even defending it on the PHP-FIG mailing list!
