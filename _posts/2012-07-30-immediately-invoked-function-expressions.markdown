@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Immediately-Invoked Function Expressions in PHP"
-date:   2015-07-30 08:14:07
+date:   2012-07-30 08:14:07
 categories: php javascript
 ---
 
