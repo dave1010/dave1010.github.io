@@ -1,0 +1,40 @@
+---
+layout: post
+title:  "Bitcoin: the cryptographic currency"
+date:   2013-01-03 19:24:07
+categories: php docker
+---
+
+Bitcoin is a digital currency without any central control. It was introduced 4 years ago today (3rd January 2009). 1 Bitcoin (BTC) is currently [worth around $13](http://bitcoincharts.com/). Last year Bitcoin grew considerably in market cap (now about $150 million) and popularity, with many organisations accepting Bitcoin as a form of payment.
+
+As a software developer interested in security, the idea of a distributed digital currency with foundations in cryptography is fascinating. Read on if you want to find out more about Bitcoin or just have 5 minutes to spare.
+
+## The problem of double-spending
+
+Most currencies (virtual and non) have a central authority that issues the currency and can verify transactions to stop double spending. Bitcoin is different in that it is decentralised. This means that there is a global peer-to-peer network of computers that verify transactions and issues currency.
+
+A big problem in virtual currencies is [double spending](http://en.wikipedia.org/wiki/Double-spending). If something is on a computer or a network then it can easily be copied (even if it is encrypted). If you give me a secret file, there is no guarantee that I won’t copy the file and distribute it to 10 other people. The same can occur with currencies: if I have 1 virtual dollar, I could send it to as many people as I wanted.
+
+Simply speaking, Bitcoin gets around the problem of double spending by logging every transaction and sharing it with everyone in a “block chain”. If Alice sends Bob 1 BTC then she will not be able to send that same Bitcoin to Carol: Carol knows that it has already been sent to Bob due to the log in the block chain.
+
+## Gold and Bitcoins
+
+There is no central issuer of Bitcoins as there is for USD or GBP. Instead, Bitcoins are digitally “mined”, similar to how gold is mined. Bitcoins are similar to gold in many ways:
+
+* They are both obtained (mined) by doing work (digging or solving mathematical equations).
+* There is a limited supply (there will only be 21 million BTC).
+* As the un-mined supply decreases, the mining effort increases and mining becomes less profitable.
+Over time people create more efficient machines to make mining more profitable. For example, Bitcoin miners use special hardware (FPGAs and now ASICs).
+* They can both be misplaced and lost forever.
+* Bitcoins and gold (or anything used as a currency) have a value because people are willing to exchange goods and services for them.
+
+## How mining works
+
+The principal behind mining Bitcoins is that it takes lots of work to do but not much work to verify. A simplified analogy is trying to find whole numbers under a trillion, with a square root that has the digits 12345 near the beginning (using a calculator). It would take you years to go through all trillion possible possibilities but you could verify a possible solution in seconds.
+
+The “work” that Bitcoin miners do is finding [SHA-256 hashes](http://en.wikipedia.org/wiki/SHA-2) (a hash designed by the NSA) that starts with multiple 0′s. People have invested considerable sums in mining “rigs” used to perform these hashes, which also serve to verify the block chain is valid.
+Conclusion
+
+As Bitcoin enters its 5th year of existence, I believe it will become increasingly more prevalent in the media and society. If you’re interested in cryptography or economics I’d recommend you [look into Bitcoin](https://en.bitcoin.it/wiki/How_bitcoin_works) some more and get an understanding of how it works.
+
+Please note: forex markets are risky and there’s lots of [misinformation about Bitcoin](http://bitcoinmagazine.net/common-misconceptions-about-bitcoin-guide/) so take care with your dabbling. I am not a financial advisor!
