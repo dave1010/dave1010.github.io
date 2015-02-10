@@ -1,0 +1,40 @@
+---
+layout: post
+title:  "PHP coding standards and style guides"
+date:   2012-07-17 19:54:07
+categories: php
+---
+
+
+
+The PHP Framework Interoperability Group (PHP-FIG) are a group representing most of the big names in the PHP world such as Zend and Symfony. The group has formed to encourage PHP frameworks to be more interoperable. They’ve come up with 3 standards: PSR-0, PSR-1 and PSR-2.
+
+## PSR-0: Autoloader
+
+PSR-0 is all about autoloading classes. It basically says that classes must in directories matching their namespace and file names must be the same case as class names. It also specifies legacy PEAR-style class names with `_` corresponding to a directory separator.
+
+If you don’t name classes this way yet, I’d encourage you to start now. This means you should be able to use any compatible autoloader to load components from different projects. E.g. you can use the Symfony2 framework’s autoloader to load Doctrine’s ORM component.
+
+## PSR-1: Basic Coding Standard
+
+PSR-1 defines sensible standards. They’re based on the average of the FIG projects. Just about all modern code you encounter is likely to already confirm to PSR-1. You’ll find things like using `<?php` instead of `<?` and making files UTF-8. The only thing some people may debate is method names being in camelCase.
+
+Even if you don’t ever share code with anyone else, following PSR-1 will make things easier for yourself.
+
+## PSR-2: Coding Style Guide
+
+This is where things get interesting. Many people don’t like PSR-2 (lots of them appear to be the same people supporting PHP 5.2 frameworks) but I think it’s a great step forward for the PHP community, even if it means I have to change my coding style a little.
+
+The first guideline is spaces not tabs. Having been in the “tab” camp for over a decade, I thought switching to spaces would be a pain. Fortunately [Sublime Text](http://www.sublimetext.com/) made the switch pretty seamless. I still prefer tabs to spaces but the more I work with other developers (both at work and Open Source projects), the more I value the consistency of only using spaces. This is incredibly important when working with diffs in source control.
+
+Next is a soft line limit of 120 characters and a recommendation of keeping to 80 characters. This encourages you to keep code clear and readable, as well as making editing files on remote servers and from mobile phones easier. PSR-2 doesn’t mention total number of lines in a file but I’d recommend a soft limit of 300 lines.
+
+Most of the other guides are about spaces and newlines around braces. As with everything else in the FIG guides these are based from a survey of the member projects. Getting into the habit of following PSR-2 may take some time but is worth the effort IMO.
+
+## PHP CS – Coding Standards Fixer
+
+Tweaking spaces and newlines in an existing project to conform to the PSRs isn’t fun. Luckily [Fabien Potencier](http://fabien.potencier.org/) (of Symfony fame) has created a the [Cosing Standards Fixer](http://cs.sensiolabs.org/) to make files comply with much of PSR-1 and PSR-2.
+
+## WordPress
+
+There are lots of projects that have their own coding standards and don’t have any plans on conforming to the FIG’s standards. [WordPress](http://codex.wordpress.org/WordPress_Coding_Standards) is one of the biggest of these and is also one of the projects I work with the most. I’ve created a [ticket to track implementing PSR-0](http://core.trac.wordpress.org/ticket/21300), which would be a great start for WordPress. If that goes down well then I’ll do the same for PSR-1 and PSR-2. If you use WordPress or would like to see it implement PSR-0, please get involved and comment on the bug.
