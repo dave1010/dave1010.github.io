@@ -2,7 +2,7 @@
 layout: post
 title:  "Bitcoin: the cryptographic currency"
 date:   2013-01-03 19:24:07
-categories: php docker
+categories: economics cryptography
 ---
 
 Bitcoin is a digital currency without any central control. It was introduced 4 years ago today (3rd January 2009). 1 Bitcoin (BTC) is currently [worth around $13](http://bitcoincharts.com/). Last year Bitcoin grew considerably in market cap (now about $150 million) and popularity, with many organisations accepting Bitcoin as a form of payment.
