@@ -1,0 +1,110 @@
+---
+layout: post
+title:  "Test Driven Development training notes"
+date:   2015-04-28 20:15:54
+categories: tdd design
+---
+
+A couple of weeks ago [Chris](https://twitter.com/tweetingsherry) and I went on a TDD course from [Codemanship](http://www.codemanship.co.uk/tdd.html).
+
+This post is an expansion of some of my notes from the course. As always, suggestions and corrects are welcome (especially as [pull requests](https://github.com/dave1010/dave1010.github.io)).
+
+## Schools of TDD
+
+There are 2 main schools of TDD: Classic style and London style.
+
+Testing is either about collaborations (mock objects), or tests about outcomes (assertions & stubs) - not both. Details of an interaction between collaborators often implies the outcome, so you need to be careful about mixing these.
+
+### Classic style
+
+Classic style is also known as Chicago or Detroit style and is described best by Beck's "Test-Driven Development". This focuses on algorithms and triangualtion.
+
+First you start with the simplest test case, then gradually generalize the algorithm by adding more tests. This leads to Classic style being great for evolving algorithms. As the code is refactored, new objects are created.
+
+### London style
+
+London style is also known as Mockist style. It's best described by Freeman & Pryce's "Growing Object Oriented Software Guided By Tests" book (the GOOS book). This focuses on how objects talk to each other.
+
+London style is great for evolving complex systems - as this leads to a design where objects pass messages to eachother.
+
+## The TDD cycle
+
+### Writing tests (red)
+
+Keep tests as close as possible to the code they're testing. Keep them in the same package and in the same namespace. Commits that change the behaviour of an object should also contain commits that update the tests. Organise tests to reflect organisation of model code.
+
+Test and model code should be in separate classes but test double classes belong with test code.
+
+Choose test names carefully: they should be self explanatory. Keep tests small. The larger the test is, the more work is required to make it pass. If more work is required to pass a test then the system is in the "red" state for longer.
+
+Start with an assertion, as this is the most important thing, then work backwards to get the object behaviour. Tests should only be asking 1 question, so they have only 1 reason to fail.
+
+When a test fails then it should be obvious what goes wrong. This means the process shouldn't die or fail to late. The test failure message should point to the exact place where code would need changing to fix it. You should _always_ confirm that the test fails meaningfully first.
+
+Isolate tests so they run independently. One failing test should not break any other test. Tests should be able to be ran in individual processes if required.
+
+
+
+
+### Passing tests (green)
+
+Code should become more generalized gradually, as it is passing more tests. Don't generalize on a solution too early.
+
+Practice TDD "as if you mean it". This means you cannot add more than the simplest code required to pass a test - even if a more generalized solution is obvious.
+
+
+### Refactoring
+
+TDD is unsustainable without refactoring. Refactoring must be done continually during the process. Refactoring is unsafe without (passing) tests. Don't be tempted to refactor if there are any failing tests.
+
+Duplicate code is a _clue_ to an opportunity for abstraction.
+
+Maintain your tests - keep them green. Test code should be refactored too, though they should be more DAMP (Descriptive And Meaningful Phrases) than DRY (Don't repeat yourself).
+
+Refactoring is mostly about redistributing responsibilities. It is critical for the right object to be responsible for the right behaviour. Once the responsibilities are in the right place, code and behaviour is much easier to test and change.
+
+
+## Testing
+
+You've finished development of a specific object when there are no more failing tests possible. Once you get to this point it is no longer TDD as it is not driving development. This activity is called "testing" and can be a legitimate thing to do!
+
+
+
+## Test doubles
+
+
+For an intro to test doubles, have a look at [my notes](http://createopen.com/design/php/2014/10/30/designing-through-mocking.html) on Konstantin Kudryashov's talk "Design how your objects talk through mocking".
+
+Don't mix up mocks and stubs. Using both at the same time leads to complexity and tests that are hard to maintain.
+
+
+
+### Stubs
+
+Stubs are for testing data and are used to provide the system under test with the right input.
+
+For example to test an import script, a CSV file stub may always return preset data when its data is queried.
+
+
+### Mocks (or spies)
+
+Mocks are for testing interactions between objects. They record interactions between objects and verify methods are called as expected.
+
+For example, an import script should call the method `persist()` on a mock repository, passing in an entity.
+
+Mocks shouldn't be overused as it means the implementation will be tied to the test. Mocks for static methods should be avoided. Mocks also shouldn't be used to make legacy code easier to test: the more you do it, the more it will bake in bad design.
+
+
+## Good Object Oriented design
+
+A good object oriented design passes the tests in the simplest way possible. The right objects are doing the right work and objects collaborate where they need to.
+
+You can help model OO design by using a Class Responsibility Collaborator (CRC) model. This is creating a set of index cards with the class name and 2 columns:
+
+* its responsibilities: what it does (behavior) and what it knows
+* its collaborators: other classes that it interacts with to fulfill its responsibilities
+
+When thge CRC model is complete, you can start writing tests for the object that isn't told what to do by anything else.
+
+Objects should only perform actions with what they explicitly know about. Objects shouldn't have to as for data from other objects. This is basically the [Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter). This means objects should not leak data when not needed. This helps an interface stay narrow.
+
