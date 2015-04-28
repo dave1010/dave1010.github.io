@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Test Driven Development training notes"
+title:  "Test Driven Development training course notes"
 date:   2015-04-28 20:15:54
 categories: tdd design
 ---
