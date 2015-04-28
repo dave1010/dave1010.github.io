@@ -17,7 +17,7 @@ Testing is either about collaborations (mock objects), or tests about outcomes (
 
 ### Classic style
 
-Classic style is also known as Chicago or Detroit style and is described best by Beck's "Test-Driven Development". This focuses on algorithms and triangualtion.
+Classic style is also known as Chicago or Detroit style and is described best by Beck's "Test-Driven Development". This focuses on algorithms and triangulation.
 
 First you start with the simplest test case, then gradually generalize the algorithm by adding more tests. This leads to Classic style being great for evolving algorithms. As the code is refactored, new objects are created.
 
@@ -25,7 +25,7 @@ First you start with the simplest test case, then gradually generalize the algor
 
 London style is also known as Mockist style. It's best described by Freeman & Pryce's "Growing Object Oriented Software Guided By Tests" book (the GOOS book). This focuses on how objects talk to each other.
 
-London style is great for evolving complex systems - as this leads to a design where objects pass messages to eachother.
+London style is great for evolving complex systems - as this leads to a design where objects pass messages to each other.
 
 ## The TDD cycle
 
