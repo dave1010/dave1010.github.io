@@ -106,5 +106,5 @@ You can help model OO design by using a Class Responsibility Collaborator (CRC) 
 
 When thge CRC model is complete, you can start writing tests for the object that isn't told what to do by anything else.
 
-Objects should only perform actions with what they explicitly know about. Objects shouldn't have to as for data from other objects. This is basically the [Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter). This means objects should not leak data when not needed. This helps an interface stay narrow.
+Objects should only perform actions with what they explicitly know about. Objects shouldn't have to ask for data from other objects. This is basically the [Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter). This means objects should not leak data when not needed. This helps an interface stay narrow.
 
