@@ -9,6 +9,8 @@ If my fingers are near a keyboard then chances are I'm writing PHP or JavaScript
 
 I'm also one of the cofounders of [PHP Dorset](http://www.phpdorset.co.uk).
 
+I have a gmail.com email address, that starts with dave1010.
+
 Specialties: PHP, MySQL, JavaScript, Linux, Security, Performance, Open Source.
 
 Experience: Mobile web apps, jQuery, CSS, RWD, Sass, accessibility, usability, Apache, Nginx, PostgreSQL, Bash, HTML, HTML5, HTML6, Unit testing, TDD, Symfony, Laravel, big data, graph databases, pen testing.
